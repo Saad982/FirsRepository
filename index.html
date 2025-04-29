@@ -17,6 +17,20 @@
    <p>The prompt: <button onclick="doIt()">Press me!</button></p>
 
 
+   <p>Enter the values for a, b, and n to calculate the sum of multiples of a or b below n:</p>
+  
+   <label for="a">a:</label>
+   <input type="number" id="a" placeholder="Enter a number"><br><br>
+   
+   <label for="b">b:</label>
+   <input type="number" id="b" placeholder="Enter a number"><br><br>
+   
+   <label for="n">n:</label>
+   <input type="number" id="n" placeholder="Enter a limit"><br><br>
+   
+   <button onclick="doIt()">Press me!</button>
+
+
   <script>
     function checkBaggage() {
       const weight = parseFloat(document.getElementById("weightInput").value);
@@ -42,6 +56,31 @@
         }
       }
       alert("The sum of all multiples of 3 or 5 below 1000 is: " + sum);
+    }
+
+     // Function to calculate the sum of multiples of a or b below n
+     function sumOfMultiples(a, b, n) {
+      let sum = 0;
+      for (let i = 1; i < n; i++) {
+        if (i % a === 0 || i % b === 0) {
+          sum += i;
+        }
+      }
+      return sum;
+    }
+
+    // Function triggered when the button is clicked
+    function doIt() {
+      // Getting values from input boxes
+      let a = parseInt(document.getElementById('a').value);
+      let b = parseInt(document.getElementById('b').value);
+      let n = parseInt(document.getElementById('n').value);
+      
+      // Calculate the sum using the sumOfMultiples function
+      let result = sumOfMultiples(a, b, n);
+      
+      // Displaying the result to the user
+      alert("The sum of all multiples of " + a + " or " + b + " below " + n + " is: " + result);
     }
   </script>
 </body>
